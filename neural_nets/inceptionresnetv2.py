@@ -12,7 +12,7 @@ class inceptionresnetv2(nn_base):
         self,
         pretrained_weights="imagenet",
         include_top=False,
-        pooling = "avg",
+        pooling = "max",
          **kwargs):
 
         self.pretrained_weights = pretrained_weights
