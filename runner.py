@@ -3,6 +3,13 @@ import os
 import numpy as np
 import time
 
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.2
+config.gpu_options.allow_growth=True
+set_session(tf.Session(config=config))
+
 from neural_nets.resnet50 import resnet50
 
 parameters = {
