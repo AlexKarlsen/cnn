@@ -6,7 +6,7 @@ import time
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 config = tf.ConfigProto()
-config.gpu_options.per_process_gpu_memory_fraction = 0.2
+config.gpu_options.per_process_gpu_memory_fraction = 0.5
 config.gpu_options.allow_growth=True
 set_session(tf.Session(config=config))
 
@@ -17,9 +17,9 @@ parameters = {
                 "batch_size": 32,
                 "save_best": True,
                 "tuning_params" : {
-                    "start": 10,
+                    "start": 5,
                     "tune_for": 50,
-                    "trainable_layers": 249
+                    "trainable_layers": 400
                 },
                 "runtime_augmentation" : {
                     "rotation_range": 0.2,
