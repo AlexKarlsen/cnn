@@ -30,9 +30,9 @@ class inceptionv3(nn_base):
 
         self.model = Sequential([
             self.base,
-            Dropout(rate=0.6),
+            Dropout(rate=0.3),
             Dense(1024, activation='relu'),
-            Dropout(rate=0.6),
+            Dropout(rate=0.3),
             Dense(self.n_classes, activation="softmax")
         ])
 
