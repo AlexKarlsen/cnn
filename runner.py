@@ -13,7 +13,7 @@ set_session(tf.Session(config=config))
 from neural_nets.inceptionv3 import inceptionv3
 
 parameters = {
-                "epochs" : 5,
+                "epochs" : 60,
                 "batch_size": 32,
                 "save_best": True,
                 "tuning_params" : {
