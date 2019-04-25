@@ -13,6 +13,7 @@ set_session(tf.Session(config=config))
 from neural_nets.inceptionv3 import inceptionv3
 
 parameters = {
+                "dataset_name":"fin-benthic",
                 "epochs" : 60,
                 "batch_size": 32,
                 "save_best": True,
@@ -25,7 +26,7 @@ parameters = {
                     "rotation_range": 0.2,
                 #     "height_shift_range": 0.2,
                 #     "width_shift_range": 0.2,
-                #     "zoom_range": 0.2,
+                    "zoom_range": 0.2,
                     "horizontal_flip": True,
                     "vertical_flip": True
                 }

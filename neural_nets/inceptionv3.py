@@ -37,4 +37,4 @@ class inceptionv3(nn_base):
         ])
 
     def __str__(self):
-        return f"inceptionv3{self.pretrained_weights}" 
+        return f"inceptionv3_{self.pretrained_weights}" 
