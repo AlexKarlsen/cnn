@@ -10,11 +10,11 @@ config.gpu_options.per_process_gpu_memory_fraction = 0.2
 config.gpu_options.allow_growth=True
 set_session(tf.Session(config=config))
 
-from neural_nets.resnet50 import resnet50
+from neural_nets.inceptionresnetv2 import inceptionresnetv2
 
 parameters = {
                 "epochs" : 15,
-                "batch_size": 12,
+                "batch_size": 32,
                 "save_best": True,
                 "runtime_augmentation" : {
                     "rotation_range": 0.2,
@@ -26,6 +26,6 @@ parameters = {
                 }
             }
 
-model = resnet50(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
+model = inceptionresnetv2(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
 
 model.train()

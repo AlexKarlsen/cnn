@@ -236,7 +236,8 @@ class nn_base(metaclass = ABCMeta):
                               epochs=self.epochs, 
                               workers=4,
                               validation_data=validation_generator, 
-                              validation_steps=validation_steps)
+                              validation_steps=validation_steps,
+                              callbacks = self.callbacks)
 
     def predict(self,data):
         x_test = pd.DataFrame()
