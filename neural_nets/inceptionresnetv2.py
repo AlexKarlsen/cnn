@@ -32,9 +32,9 @@ class inceptionresnetv2(nn_base):
             self.base,
             Dropout(rate=0.4),
             Dense(32, activation='relu', kernel_regularizer=l2(0.02)),
-            Dropout(rate=0.4),
+            #Dropout(rate=0.4),
             Dense(32, activation='relu', kernel_regularizer=l2(0.02)),
-            Dropout(rate=0.4),
+            #Dropout(rate=0.4),
             Dense(self.n_classes, activation="softmax")
         ])
 
