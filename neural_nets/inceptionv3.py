@@ -38,5 +38,6 @@ class inceptionv3(nn_base):
             Dense(self.n_classes, activation="softmax")
         ])
 
+
     def __str__(self):
         return f"inceptionv3_{self.pretrained_weights}" 

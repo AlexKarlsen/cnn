@@ -1,7 +1,6 @@
 from keras import Sequential
 from keras.layers import Dropout, Dense
 from keras.applications.inception_resnet_v2 import InceptionResNetV2, preprocess_input
-from keras.regularizers import l2
 
 # pylint: disable=fixme, relative-beyond-top-level
 from .nn_base import nn_base
@@ -13,7 +12,7 @@ class inceptionresnetv2(nn_base):
         self,
         pretrained_weights="imagenet",
         include_top=False,
-        pooling = "max",
+        pooling = "avg",
          **kwargs):
 
         self.pretrained_weights = pretrained_weights
@@ -27,14 +26,12 @@ class inceptionresnetv2(nn_base):
                                 weights=self.pretrained_weights, 
                                 include_top=self.include_top,
                                 pooling=self.pooling)
-
+        self.base.get_layer("conv_7b").kernel_regularizer = keras.regularizers.l1(0.005)
         self.model = Sequential([
             self.base,
-            Dropout(rate=0.4),
-            Dense(32, activation='relu', kernel_regularizer=l2(0.02)),
-            #Dropout(rate=0.4),
-            Dense(32, activation='relu', kernel_regularizer=l2(0.02)),
-            #Dropout(rate=0.4),
+            Dropout(rate=0.6),
+            Dense(1024, activation='relu'),
+            Dropout(rate=0.6),
             Dense(self.n_classes, activation="softmax")
         ])
 
