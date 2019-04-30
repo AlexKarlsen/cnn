@@ -1,6 +1,7 @@
 from keras import Sequential
 from keras.layers import Dropout, Dense
 from keras.applications.inception_resnet_v2 import InceptionResNetV2, preprocess_input
+from keras.regularizers import l2
 
 # pylint: disable=fixme, relative-beyond-top-level
 from .nn_base import nn_base
@@ -30,7 +31,7 @@ class inceptionresnetv2(nn_base):
         self.model = Sequential([
             self.base,
             Dropout(rate=0.4),
-            Dense(1024, activation='relu'),
+            Dense(1024, activation='relu', kernel_regularizer=l2(0.02)),
             Dropout(rate=0.4),
             Dense(self.n_classes, activation="softmax")
         ])

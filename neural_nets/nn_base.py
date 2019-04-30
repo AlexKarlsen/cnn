@@ -1,7 +1,7 @@
 from keras.utils import to_categorical
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, Callback
-from keras.optimizers import Adam
+from keras.optimizers import Adam, RMSprop
 import os
 from os.path import realpath, dirname, join, exists
 from os import makedirs
@@ -109,7 +109,8 @@ class nn_base(metaclass = ABCMeta):
     def compile(self, lr=0.001):
 
         self.model.compile(
-            optimizer=Adam(lr=lr),
+            optimizer=Adam(lr=lr, decay=0.0001),
+            #RMSprop(lr=lr),
             loss='categorical_crossentropy',
             metrics=['categorical_accuracy']
             )
