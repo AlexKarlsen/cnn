@@ -32,6 +32,6 @@ parameters = {
                 }
             }
 
-model = inceptionv3(n_classes=29, input_shape = (128, 128, 3),start_timestamp = str(time.time()), **parameters)
+model = inceptionv3(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
 
 model.train()
