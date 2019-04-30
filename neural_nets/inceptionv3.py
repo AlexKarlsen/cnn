@@ -33,7 +33,7 @@ class inceptionv3(nn_base):
             #Dropout(rate=0.3),
             Dense(1024, activation='relu'),
             Dropout(rate=0.3),
-            Dense(1024, actication='relu'),
+            Dense(1024, activation='relu'),
             Dropout(rate=0.3),
             Dense(self.n_classes, activation="softmax")
         ])
