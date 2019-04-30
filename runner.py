@@ -23,12 +23,12 @@ parameters = {
                     "trainable_layers": 249
                 },
                 "runtime_augmentation" : {
-                    "rotation_range": 0.2,
+                #    "rotation_range": 0.2,
                 #     "height_shift_range": 0.2,
                 #     "width_shift_range": 0.2,
-                    "zoom_range": 0.2,
-                    "horizontal_flip": True,
-                    "vertical_flip": True
+                #    "zoom_range": 0.2,
+                #    "horizontal_flip": True,
+                #    "vertical_flip": True
                 }
             }
 

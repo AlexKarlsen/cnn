@@ -217,7 +217,7 @@ class nn_base(metaclass = ABCMeta):
                         train_image_dir,  # Source directory for the training images 
                         x_col="id",
                         y_col="label",
-                        target_size=(128, 128),  
+                        target_size=(256, 256),  
                         batch_size=self.batch_size)
 
         # Flow validation images in batches of 20 using test_datagen generator
@@ -226,7 +226,7 @@ class nn_base(metaclass = ABCMeta):
                 validation_image_dir, # Source directory for the validation images 
                 x_col="id",
                 y_col="label",
-                target_size=(128, 128),
+                target_size=(256, 256),
                 batch_size=self.batch_size)
 
         steps_per_epoch = train_generator.n // self.batch_size
