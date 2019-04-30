@@ -116,7 +116,7 @@ class nn_base(metaclass = ABCMeta):
 
     def activate_tuning(self):
         _apply_tuning_params_to_model(self.base,**self.tuning_params)
-        self.compile(lr=0.001)
+        self.compile(lr=0.0001)
         # workaround for warning, since its not compiled model will still be trainable
         # https://github.com/tensorflow/tensorflow/issues/22012
         self.base.trainable = True
