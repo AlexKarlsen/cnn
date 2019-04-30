@@ -25,7 +25,7 @@ parameters = {
                     "trainable_layers": 600
                 },
                 "runtime_augmentation" : {
-                    "rescale":1./255,
+                    #"rescale":1./255,
                     "rotation_range":360,
                     "width_shift_range":0.2,
                     "height_shift_range":0.2,
