@@ -16,7 +16,7 @@ from neural_nets.inceptionresnetv2 import inceptionresnetv2
 parameters = {
                 "dataset_name":"fin-benthic",
                 "epochs" : 60,
-                "batch_size": 128,
+                "batch_size": 64,
                 "save_best": True,
                 "pooling": 'avg',
                 "tuning_params" : {
