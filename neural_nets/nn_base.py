@@ -109,7 +109,7 @@ class nn_base(metaclass = ABCMeta):
     def compile(self, lr=0.001):
 
         self.model.compile(
-            optimizer=Adam(lr=lr, decay=0.0001),
+            optimizer=Adam(lr=lr),
             #RMSprop(lr=lr),
             loss='categorical_crossentropy',
             metrics=['categorical_accuracy']
