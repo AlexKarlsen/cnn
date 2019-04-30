@@ -288,6 +288,6 @@ def _apply_tuning_params_to_model(
             return
 
         if not trainable_layers is None:
-            for l in model.layers[trainable_layers:]:
+            for l in model.layers[:trainable_layers]:
                 l.trainable = True
             return
