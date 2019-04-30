@@ -17,6 +17,7 @@ parameters = {
                 "epochs" : 60,
                 "batch_size": 32,
                 "save_best": True,
+                "pooling": 'max',
                 "tuning_params" : {
                     "start": 5,
                     "tune_for": 50,
