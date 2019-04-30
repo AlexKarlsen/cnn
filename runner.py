@@ -11,6 +11,7 @@ config.gpu_options.allow_growth=True
 set_session(tf.Session(config=config))
 
 from neural_nets.inceptionv3 import inceptionv3
+from neural_nets.inceptionresnetv2 import inceptionresnetv2
 
 parameters = {
                 "dataset_name":"fin-benthic",
@@ -21,7 +22,7 @@ parameters = {
                 "tuning_params" : {
                     "start": 5,
                     "tune_for": 50,
-                    "trainable_layers": 172
+                    "trainable_layers": 600
                 },
                 "runtime_augmentation" : {
                 #    "rotation_range": 0.2,
@@ -33,6 +34,6 @@ parameters = {
                 }
             }
 
-model = inceptionv3(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
+model = inceptionresnetv2(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
 
 model.train()
