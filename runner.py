@@ -16,7 +16,7 @@ from neural_nets.inceptionresnetv2 import inceptionresnetv2
 parameters = {
                 "dataset_name":"fin-benthic",
                 "epochs" : 60,
-                "batch_size": 128,
+                "batch_size": 64,
                 "save_best": True,
                 "pooling": 'avg',
                 "tuning_params" : {
@@ -25,12 +25,14 @@ parameters = {
                     "trainable_layers": 600
                 },
                 "runtime_augmentation" : {
-                    "rotation_range": 0.2,
-                     "height_shift_range": 0.2,
-                     "width_shift_range": 0.2,
-                    "zoom_range": 0.2,
-                    "horizontal_flip": True,
-                    "vertical_flip": True
+                    "rescale":1./255,
+                    "rotation_range":360,
+                    "width_shift_range":0.2,
+                    "height_shift_range":0.2,
+                    #shear_range=10,
+                    "zoom_range":0.2,
+                    "horizontal_flip":True,
+                    "vertical_flip":True
                 }
             }
 
