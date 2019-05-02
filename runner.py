@@ -22,7 +22,7 @@ parameters = {
                 "tuning_params" : {
                     "start": 5,
                     "tune_for": 50,
-                    "trainable_layers": 600
+                    "trainable_layers": 150 # seems to be reversed
                 },
                 "runtime_augmentation" : {
                     #"rescale":1./255,
