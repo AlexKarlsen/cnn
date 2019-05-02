@@ -17,7 +17,7 @@ parameters = {
                 "dataset_name":"fin-benthic",
                 "epochs" : 500,
                 "batch_size": 64,
-                "save_best": True,
+                "save_checkpoints": True,
                 "pooling": 'avg',
                 "tuning_params" : {
                     "start": 5,
@@ -36,6 +36,6 @@ parameters = {
                 }
             }
 
-model = inceptionresnetv2(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()),dataset_name='my_ds', **parameters)
+model = inceptionresnetv2(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
 
 model.train()
