@@ -15,13 +15,13 @@ from neural_nets.inceptionresnetv2 import inceptionresnetv2
 
 parameters = {
                 "dataset_name":"fin-benthic",
-                "epochs" : 60,
+                "epochs" : 500,
                 "batch_size": 64,
                 "save_best": True,
                 "pooling": 'avg',
                 "tuning_params" : {
                     "start": 5,
-                    "tune_for": 50,
+                    "tune_for": 495,
                     "trainable_layers": 150 # seems to be reversed
                 },
                 "runtime_augmentation" : {
@@ -36,6 +36,6 @@ parameters = {
                 }
             }
 
-model = inceptionresnetv2(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()), **parameters)
+model = inceptionresnetv2(n_classes=29, input_shape = (256, 256, 3),start_timestamp = str(time.time()),dataset_name='my_ds', **parameters)
 
 model.train()
