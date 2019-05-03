@@ -29,7 +29,7 @@ class inceptionresnetv2(nn_base):
         #self.base.get_layer("conv_7b").kernel_regularizer = l1(0.005)
         self.model = Sequential([
             self.base,
-            #Dropout(rate=0.6),
+            Dropout(rate=0.5),
             #Dense(1024, activation='relu', kernel_regularizer=l2(0.01)),
             #Dropout(rate=0.6),
             Dense(self.n_classes, activation="softmax")

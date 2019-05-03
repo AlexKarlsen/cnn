@@ -1,6 +1,6 @@
 from keras.utils import to_categorical
 from keras.preprocessing.image import ImageDataGenerator
-from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, Callback
+from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, Callback, ReduceLROnPlateau
 from keras.optimizers import Adam, RMSprop
 import os
 from os.path import realpath, dirname, join, exists
@@ -48,6 +48,7 @@ class nn_base(metaclass = ABCMeta):
         batch_size=32,
         epochs=5,
         enable_tensorboard = True,
+        reduce_lr = False,
         **kwargs):
 
         self.start_timestamp = start_timestamp
@@ -61,6 +62,7 @@ class nn_base(metaclass = ABCMeta):
         self.dataset_name = dataset_name
         self.verbose = verbose
         self.tuning_params = tuning_params
+        self.reduce_lr = reduce_lr
 
         # is initialized by concrete subclass
         self.model = None
@@ -164,6 +166,10 @@ class nn_base(metaclass = ABCMeta):
         if not self.tuning_params == {}:
             tune = fine_tuining_callback(self,**self.tuning_params)
             self.callbacks.append(tune)
+
+        if self.reduce_lr:
+            reduce_lr = ReduceLROnPlateau()
+            self.callbacks.append(reduce_lr)
 
     def append_ext(self, fn):
         return 'Image'+str(fn)+'.jpg'

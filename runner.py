@@ -19,10 +19,11 @@ parameters = {
                 "batch_size": 64,
                 "save_checkpoints": True,
                 "pooling": 'avg',
+                "reduce_lr": True,
                 "tuning_params" : {
                     "start": 5,
                     "tune_for": 495,
-                    "trainable_layers": 150 # seems to be reversed
+                    "trainable _base": True # seems to be reversed
                 },
                 "runtime_augmentation" : {
                     #"rescale":1./255,
